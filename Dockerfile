@@ -1,21 +1,13 @@
-FROM node:20-alpine
+FROM node:20
 
 WORKDIR /app
 
-# Copy package files
 COPY package*.json ./
+RUN npm install
 
-# Install dependencies
-RUN npm install --production=false
-
-# Copy source code
 COPY . .
-
-# Build the app
 RUN npm run build
 
-# Expose port (Render uses PORT env var, default to 3001 for local)
 EXPOSE 3001
 
-# Start the production server
 CMD ["npm", "start"]
