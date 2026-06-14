@@ -1,0 +1,23 @@
+services:
+  - type: web
+    name: radio-site
+    env: node
+    nodeVersion: 20
+    plan: free
+    region: oregon
+    buildCommand: npm install && npm run build
+    startCommand: npm start
+    healthCheckPath: /health
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: RECOVERY_SECRET
+        generateValue: true
+      # Add these in the Render dashboard for real Google/Apple sign-in (Guest always works):
+      # - key: GOOGLE_CLIENT_ID
+      #   value: your-real-client-id.apps.googleusercontent.com
+      # - key: APPLE_CLIENT_ID
+      #   value: com.yourcompany.radio  (your Apple Services ID / associated domain)
+      # - key: VITE_GOOGLE_CLIENT_ID   (if you want to expose the same client id to the frontend GIS script)
+      # - key: VITE_SIGNALING_URL      (optional override; in single-service prod we auto-use origin)
+    autoDeploy: true

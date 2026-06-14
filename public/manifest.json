@@ -1,0 +1,19 @@
+{
+  "name": "Radio",
+  "short_name": "Radio",
+  "description": "Radio waves traveling the spectrum, looking for real persons. Anonymous voice & video. No accounts. Just the signal.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#f8f5f0",
+  "theme_color": "#2c2522",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "/vite.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ],
+  "categories": ["social", "communication"]
+}
